@@ -861,84 +861,147 @@
 # print(list_)
 
 
+# list_name = ['paul', 'john', 'george', 'ringo', 'eric', 'patty', 'yoko', 'cynthia', 'linda', 'jude' ]
+# new_list = ['shorter' if len(x) <= 4 else 'longer' for x in list_name]
+# print(new_list)
 
 
+# dict_ = {num : num ** 2 for num in range(1, 10)} 
+# print(dict_) 
 
+# n = int(input()) 
+# dict_ = {x : x**2 for x in range (1, 501) if x % n == 0} 
+# print(dict_)
 
+# a = {'a': 1, 'b': 5, 'c': 4, 'd': 3}
+# dict_ = {x: [i for i in range(1, y+1)] for x,y  in a.items()}
+# print(dict_)
 
+ 
+# dict_ = {'first': 1, 'second': 2, 'third': 3}
+# a = {k: 'odd' if v % 2 != 0 else 'even' for k, v in dict_.items()}
+# a = {k:'evin' if v%2==0 else 'odd' for k,v in dict_.items()}
+# print(a)
 
+# dict_ = {'first': 1, 'second': 2, 'third': 3} 
+# a = {k: 'odd' if v % 2 != 0 else 'even' for k, v in dict_.items()} 
+# print(a)
 
 
 
 
 
+# string_ = 'In 1984 there were 13 instances of a protest with over 1000 people attending'
+# list_ = [x for x in string_.split() if x.isdigit()]
+# print(list_)
 
 
 
+# with open('task2.txt', 'r') as file:  
+#     for line in file.readlines():
+#         print(line)
+        
 
 
 
+# with open('task1.txt', 'r') as file:  
+#     file.readlines(13)
+#     print(file)
 
 
 
+# with open('task2.txt', 'r') as file: 
+#     for l in file.readlines(): 
+#         print(l)
 
 
 
+# with open('task3.txt','w+') as file:
+#     file.write('0*1*2*3*4*5*6*7*8*9*')
+#     file.seek(0)
+#     print(file.read())
 
 
 
+# with open('task4.txt','r') as file:
+#     print(len(file.readlines()))
 
 
+# with open('task5.txt', 'r') as f: 
+#     list_ = [] 
+#     ful = f.read() 
+# for i in ful.split(): list_.append(int(i)) 
+# with open('task6.txt', 'x') as fw: 
+#     fw.write(f'{min(list_)}-{max(list_)}') 
 
 
+# with open('task5.txt', 'r') as f: 
+#     list_ = f.readlines() 
+#     list_ = [line.replace('\n', '')for line in list_] 
+#     list1 = [] 
+#     for i in list_: 
+#         i = int(i) 
+#     list1.append(i) 
+# a = min(list1) 
+# b = max(list1) 
+# with open('task6.txt', 'w') as fw: 
+#     fw.write(f'{a}-{b}')
 
 
+# dict_ = {'Timur': {'history': 90, 'math': 95, 'literature': 91},
+ 
+# 'Olga': {'history': 92, 'math': 96, 'literature': 81},
+ 
+# 'Nik': {'history': 84, 'math': 85, 'literature': 87}}
 
+# new_dict={x:max(y,key=lambda x:y.get(x)) for x,y in dict_.items()} 
+# print(new_dict)
 
 
 
+# my_dict = {'first': {'a': 1}, 'second': {'b': 2}} 
+# dict_ = {k:y for k,v in my_dict.items() for x,y in v.items()} 
+# print(dict_)
 
 
 
+# list_= [x for x in range(1, 26) if x % 2 == 0]
+# print(list_)
 
 
+# list_ = [-4, -3, -2, -1, 0, 1, 2, 3, 4]
+# int_list = [x if x >= 0 else 1 for x in list_]
+# print(int_list)
 
+# list1 = [1, 2, 'hello', 3, 'world', 4, 5, 'book', 'code', 6, 'Makers', 7, 8, 9, 10]
+# list2 = [x for x in list1 if type(x) == str]
+# print(list2)
 
+# list_ = [0, 3, 9, 7, 5, 2, 18, 4]
+# list1 = [x for x in list_ if x > 5]
+# print(list1)
 
+# list_ = [False, True, False, True, False, True, False, True, False, True]
+# list_ = [1 if x == True else 0 for x in list_]
+# print(list_)
 
+# list_name = ['paul', 'john', 'george', 'ringo', 'eric', 'patty', 'yoko', 'cynthia', 'linda', 'jude' ]
+# new_list = [len(x) for x in list_name ]
+# print(new_list)
 
 
+# list_ = range(1, 1001, 125)
+# new_list = [x for x in list_ if x % 2 == 0]
+# print(new_list)
 
+# list1 = [44,54,64,74,104]
+# list2 = [x + 6 for x in list1]
+# print(list2)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+list1 = [2, 4, 6, 8, 10, 12, 14]
+list2 = [x for x in list1 if x**2 > 50]
+print(list2)
 
 
 
