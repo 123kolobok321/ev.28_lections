@@ -1,0 +1,53 @@
+h2 {
+    border: dotted 5px rgb(229, 6, 125);
+}
+
+*{
+    color: brown;
+}
+
+.super{
+    color: blue;
+}
+
+#super_id{
+    background: pink;
+}
+
+
+.span {
+    font-weight: bold;
+    color: blue;
+}
+
+#test{
+    background-color: rgb(14, 7, 151);
+    width: 50%;
+    height: 50%;
+    margin: auto;
+}
+
+.parnet{
+    height: 50vh;
+    width: 50vw;
+    background-color: black;
+    margin-left: 20px;
+    padding: 20px;
+   
+    display: flex;
+    align-items: center;
+}
+
+div {
+    cursor: pointer;
+}
+
+div:hover{
+    background-color: blue;
+    margin: 20px;
+}
+
+a :active {
+    color: green;
+}
+

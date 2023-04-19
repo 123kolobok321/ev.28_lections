@@ -999,9 +999,364 @@
 # print(list2)
 
 
-list1 = [2, 4, 6, 8, 10, 12, 14]
-list2 = [x for x in list1 if x**2 > 50]
-print(list2)
+# list1 = [2, 4, 6, 8, 10, 12, 14]
+# list2 = [x for x in list1 if x**2 > 50]
+# print(list2)
+
+
+
+# string = "happy birthday!"
+# list1 = list(string)
+# list_ = [x for x in string if x != ' ' and x != '!']
+# print(list_)
+
+
+# string = "happy birthday!"
+# list_ = [list(x) for x in string if x != '' and x != '!']
+# print(list_)
+
+# dict_ = {'a': {'d': 3, 'e': 45}, 'b': {'f': 23, 'j': 9}, 'c': {'h': 12, 'i': 89}}
+# list1 = [v for k,v in dict_.items() for x,v in v.items()]
+# print(list1)
+
+
+
+# dict_ = {'a': {'d': 3, 'e': 45}, 'b': {'f': 23, 'j': 9}, 'c': {'h': 12, 'i': 89}} 
+# list1 = [y for k,v in dict_.items() for x,y in v.items()] 
+# print(list1)
+
+
+
+
+
+# list_ = [1, 4, 9, 16, 25, 36] 
+# try: 
+#     print(list_[5]) 
+
+# except: print('Такого элемента нет!!!')
+
+
+# x = 5  
+# try: 
+#   print(x) 
+# except: 
+#   print("что-то пошло не так") 
+# else: 
+#   print("ошибок не возникло") 
+# finally: 
+#   print("'try except' закончил свою работу") 
+
+
+# try: 
+#     age = int(input()) 
+#     if age < 18: 
+#         raise ValueError('Доступ запрещён') 
+# except: 
+
+#     print('Введён некорректный возраст') 
+    
+# else:   
+#     print('Спасибо') 
+# finally: 
+#     print('До свидания!')
+
+
+# try: 
+#     num1 = int(input()) 
+#     num2 = int(input()) 
+#     res = num1 / num2 
+# except (ValueError, ZeroDivisionError): 
+#     print('Произошла ошибка!') 
+# else:
+#     print(res)
+
+# import json  
+# with open('file.json', 'r') as f: 
+#     result = json.loads(f.read()) 
+#     print(result)
+
+
+
+# import json 
+# file1 = open('task1.json') 
+# python_obj = json.loads(file1.read()) 
+# file1.close() 
+# with open('task1.py', 'w') as file2: 
+#     file2.write(str(python_obj))
+
+
+
+
+
+# from functools import reduce 
+# list_ = [5, 6, 7, 8] 
+# result = reduce(lambda x, y: x * y, list_) 
+# print(result)
+
+
+# list_ = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+# list2 = len(list(filter(lambda x: x % 2 == 0, list_))) 
+# list3 = len(list(filter(lambda x: not x % 2 == 0, list_))) 
+# result = f'even: {list2}, odd: {list3}' 
+# print(result)
+
+
+# def get_type(a,b): 
+#     print(f'{type(a)}\n{type(b)}') 
+# get_type(99,'999')
+
+
+
+# number = 8
+# string = 'kolobok'
+# res = number * string
+# print(res)
+
+
+# positive = 5
+# negative = -5
+# print(abs(positive))
+# print(abs(negative))
+
+
+# x = 90
+# print(pow(90,3))
+
+
+# num1 = int(input())
+# num2 = int(input())
+# num3 = 2.5
+# print((num1 % num2) * num3)
+
+# decimal = 10.0
+# print(decimal**2)
+# print(decimal**3)
+# print(decimal**0.5)
+
+# стороны треугольника
+# from math import sqrt 
+# leg_a = 3 
+# leg_b = 4 
+# hypotenuse = sqrt(leg_a ** 2 + leg_b ** 2) 
+# print(hypotenuse)
+
+
+## TELEGRAMBOT
+
+
+# import telebot 
+# from telebot import types
+# import random
+
+# token = '6052003708:AAEeHvI7b05-YQnlRj2oWA_Y-UEOKF9-P_E'
+
+# bot = telebot.TeleBot(token)
+
+# keyboard = types.ReplyKeyboardMarkup()
+# button1 = types.KeyboardButton('Играть')
+# button2 = types.KeyboardButton('Нет')
+
+# keyboard.add(button1, button2)
+
+# @bot.message_handler(commands=['start', 'game'])
+# def start_message(message):
+#   message2 = bot.send_message(message.chat.id, 'Привет, начнем игру?', reply_markup=keyboard)
+#   bot.register_next_step_handler(message2, check_answer)
+
+# def check_answer(message):
+#   if message.text == 'Играть':
+#     bot.send_message(message.chat.id, 'Хорошо, тогда вот правила, нужно угадать число за 3 попытки')
+#     random_number = random.choice(range(1, 11))
+#     print(random_number)
+#     game(message, 3, random_number)
+#   else:
+#     bot.send_message(message.chat.id, 'Пока')
+
+# def game(message, attempts, random_number):
+#   message2 = bot.send_message(message.chat.id, 'Введи число')
+#   bot.register_next_step_handler(message2, check_number, attempts-1, random_number)
+  
+# def check_number(message, attempts, random_number):
+#   if message.text == str(random_number):
+#     bot.send_message(message.chat.id, 'Вы победили')
+#   elif attempts == 0:
+#     bot.send_message(message.chat.id, 'Извините, у вас закончились попытки')
+#   else:
+#     bot.send_message(message.chat.id, 'Попробуйте еще раз')
+#     game(message, attempts, random_number)
+
+# bot.polling()
+
+
+# string = 'string'
+# print(string[::-1])
+
+# string1 = 'makers'
+# string2 = 'bootcamp'
+# print(string1 + ' ' + string2)
+
+# string = 'hey'
+# print(string * 4)
+
+
+# string = 'world'
+# print(len(string))
+
+# my_str = 'Сегодня четверг' 
+# new_str = my_str.replace('четверг', 'пятница') 
+# print(new_str)
+
+
+# string = 'The quick brown fox jumps over the lazy dog'
+# str1 = string.replace('o', '*')
+# print(str1)
+
+# my_str = 'Ла Ла Лэнд' 
+# print(my_str.count('Л')) 
+
+# string = 'kolobok'
+# print(string.upper())
+
+# string = 'БЕГИ ФОРЕСТ, БЕГИ!'
+# print(string.lower())
+
+
+
+# import json 
+# with open("task2.json","r") as file: 
+#     json_obj = file.read() 
+#     python_obj = json.loads(json_obj) 
+#     print(json_obj)
+
+
+# import json 
+# def bulk_create(products): 
+#     with open('db.json') as f: old = json.load(f) 
+#     id_ = [i['id'] for i in old] 
+#     for el in products: 
+#         if el['id'] not in id_: old.append(el) 
+#         with open('new_db.json', 'w') as f2: 
+#             json.dump(old, f2) 
+# bulk_create([{'id': 100, 'title': 'product1', 'price': 1500, 'rating': 4.6}])
+
+####Parsing Neznau chto eto
+# from bs4 import BeautifulSoup 
+# import requests 
+# import csv 
+# source = requests.get('https://stackoverflow.com/questions').status_code 
+# print(f'source = {source}')
+
+
+
+# string = 'hello' 
+# print (string[-1] + string[1:-1] + string[0])
+
+
+# string = 'Hello'
+# print(string[::-1])
+
+
+# hashtags = '#makers#bootcamp#программирование#it#курсы'
+# print(hashtags.lstrip('#').split('#'))
+
+# name = input()
+# last_name = input()
+# age = input()
+# city = input()
+# print(f'Вас зовут {name} {last_name}, Ваш возраст: {age}, Вы проживаете в городе {city}')
+
+
+# string = 'Makers bootcamp'
+# print(string[1::2])
+
+# string = 'abracadabra'
+# print(string[:5]+'K'+ string[6:])
+
+
+# list_ = [-1, 2, 3, 5, -3, 7]
+# result = list(map(lambda x: True if x > 0 else False, list_))
+# print(result)
+
+
+
+
+# import requests 
+# source = requests.get('https://stackoverflow.com/questions').status_code
+# # source = url.status_code
+# print(source)
+
+
+# from bs4 
+# import BeautifulSoup 
+# import requests 
+# import csv 
+# source = requests.get('https://stackoverflow.com/questions').status_code 
+# print(source)
+
+
+# from bs4 import BeautifulSoup 
+# import requests 
+# import lxml
+# source = requests.get('http://www.example.com/').text 
+# my_page = BeautifulSoup(source, 'lxml')
+# print('h1:', my_page.h1.text) 
+# print('p:', my_page.p.text) 
+# print('a:', my_page.a.get('href')) 
+
+
+
+
+# from bs4 import BeautifulSoup
+# import requests
+# import lxml
+
+# source = requests.get('https://wikipedia.org/').text 
+# my_page = BeautifulSoup(source, 'lxml')
+# a = my_page.find('div', class_ = 'central-featured-lang lang4').find('a')
+# lang = a.find('strong').text
+# num = a.find('small').find('bdi').text
+# artik = a.find('small').find('span').text
+
+# print(lang)
+# print(num, artik)
+
+
+
+# def getTitle(url):
+#     from bs4 import BeautifulSoup
+#     import requests
+#     import lxml
+#     source = requests.get(url).text
+#     my_page = BeautifulSoup(source,'lxml')
+#     if my_page('h1'):
+#         return my_page('h1')
+#     else:
+#         return "Title could not be found"
+        
+# print(getTitle('http://www.example.com/'))
+
+
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+import lxml
+source = requests.get('https://enter.kg/').text
+my_page = BeautifulSoup(source,'lxml')
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
