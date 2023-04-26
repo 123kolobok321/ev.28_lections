@@ -36,10 +36,6 @@
 #             img = 'No image!'
 #         price_div = car.find('div', class_='block price')
 #         price = price_div.find('p').find('strong').text[1:].replace(' ','')
-#         # desc1 = car.find('p', class_='year-miles').text.strip()
-#         # desc2 = car.find('p', class_='body-type').text.strip()
-#         # desc3 = car.find('p', class_='volume').text.strip()
-#         # description = f'{desc1} {desc2} {desc3}'
 #         ls = ['year-miles', 'body-type', 'volume']
 #         desc = ' ,'.join(car.find('p', class_=x).text.strip() for x in ls)
 #         data = {
@@ -100,11 +96,6 @@
 
 
 # main()
-
-
-
-
-
 
 
 # url = 'https://www.mashina.kg/search/all/'

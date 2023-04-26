@@ -1229,9 +1229,23 @@
 #     print(json_obj)
 
 
+# def message_add():
+#     with open('text.txt') as file:
+#         list_ = file.read()
+        
+
+
+
+
+# list_name = ['paul', 'john', 'george', 'ringo', 'eric', 'patty', 'yoko', 'cynthia', 'linda', 'jude' ]
+# res = {name: len(name) ** 2  for name in list_name if len(name) > 4}
+# print(res)
+
+
 # import json 
 # def bulk_create(products): 
-#     with open('db.json') as f: old = json.load(f) 
+#     with open('db.json') as f: 
+#     old = json.load(f) 
 #     id_ = [i['id'] for i in old] 
 #     for el in products: 
 #         if el['id'] not in id_: old.append(el) 
@@ -1337,39 +1351,156 @@
 
 
 
+# from bs4 import BeautifulSoup
+# import requests
+
+# response = requests.get('https://www.imdb.com/chart/top').text
+# soup = BeautifulSoup(response, 'lxml')
+# container = soup.find('div', class_='lister').find('table', class_='chart full-width').find('tbody', class_='lister-list')
+# films = container.find_all('tr')
+# title_list = []
+# for item in films:
+#     film_link = 'https://www.imdb.com' + item.find('td', class_='titleColumn').find('a').get('href')
+#     film_name = item.find('td', class_='titleColumn').find('a').text
+#     data = {'name': film_name, 'link': film_link}
+#     title_list.append(data)
+
+# def get_link(title_list, name):
+#     for i in title_list:
+#         if name.lower() in i['name'].lower():
+#             return i['link']
+    
+
+# print(get_link(title_list, 'shawshank'))
 
 
-
-from bs4 import BeautifulSoup
-import requests
-import lxml
-source = requests.get('https://enter.kg/').text
-my_page = BeautifulSoup(source,'lxml')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#
 
 
 
 
 
+# list_name = ['paul', 'john', 'george', 'ringo', 'eric', 'patty', 'yoko', 'cynthia', 'linda', 'jude' ]
+# res = {name: len(name) ** 2  for name in list_name if len(name) > 4}
+# print(res)
+
+
+# from functools import reduce 
+
+# list_ = ['Paul', 'George', 'Ringo', 'John'] 
+# result = reduce(lambda x, y: x if len(x) > len(y) else y, list_) 
+# print(result)
+
+
+# def num_kol():
+#     result = ['Fizz' if x % 3 == 0 else 'Buzz' for x in range(1, 51)]
+#     return result
+
+# print(num_kol())
+
+
+# from functools import reduce 
+# list_=list(range(1,50)) 
+# result = list(map(lambda x: 'Fizz' if x % 3 == 0 else 'Buzz', list_)) 
+# print(result)
+
+
+# import csv
+# import requests
+# from bs4 import BeautifulSoup
+# from datetime import datetime
+# from multiprocessing import Pool
+
+# def get_html(url: str) -> str:
+#     '''Эта функция получает HTML разметку по определенному сайту по URL'''
+#     response = requests.get(url)
+#     return response.text
+
+# def get_soup(html: str) -> BeautifulSoup:
+#     ''' Получает html разметку и структурирует ее в красивый bs'''
+#     soup = BeautifulSoup(html, 'lxml')
+#     return soup
+
+
+# def get_all_links():
+#     res = []
+#     i = 1
+#     while True:
+#         url = f'https://www.mashina.kg/search/all/?page={i}'
+#         res.append(url)
+#         print(url)
+#         if i == 1749:
+#             break
+#         i += 1
+#     return res
+
+# def get_data(link: BeautifulSoup) -> list:
+#     html = get_html(link)
+#     soup = get_soup(html)
+#     '''Получает нужные данные с сайта машина кджи'''
+#     container = soup.find('div', class_='table-view-list')
+#     cars = container.find_all('div', class_='list-item')
+#     result = []
+#     for car in cars:
+#         name = car.find('h2', class_='name').text.strip()
+#         try:
+#             img = car.find('img', class_='lazy-image').get('data-src')
+#         except:
+#             img = 'No image'
+#         price_div = car.find('div', class_='block price')
+#         price = price_div.find('p').find('strong').text
+#         ls = ['year-miles', 'body-type', 'volume']
+#         desc = ', '.join(car.find('p', class_=x).text.strip() for x in ls)
+#         data = {
+#             'name': name,
+#             'desc': desc,
+#             'price': price,
+#             'img': img
+#         }
+#         result.append(data)
+#     return result
+
+# def prepare_csv() -> None:
+#     '''Функция, которя подготавливает csv файл!'''
+#     with open('cars.csv', 'w') as file:
+#         writer = csv.writer(file)
+#         writer.writerow([
+#             'Name',
+#             'Description',
+#             'Price',
+#             'Image URL'
+#         ])
+
+# def write_to_csv(data: list) -> None:
+#     '''Записывает все данные в csv файл'''
+#     with open('cars.csv', 'a') as file:
+#         fieldnames = ['Name', 'Description', 'Price', 'Image URL']
+#         writer = csv.DictWriter(file, fieldnames) 
+#         for car in data:
+#             writer.writerow({
+#             'Name': car['name'],
+#             'Description': car['desc'],
+#             'Price': car['price'],
+#             'Image URL': car['img']
+#             }) 
+
+# def make_all(link):#8
+#         data = get_data(link)
+#         write_to_csv(data)        
+
+
+# def main():
+#     prepare_csv()
+#     links = get_all_links()
+#     with Pool(40) as pool:
+#         pool.map(make_all, links)
+
+
+# if __name__ == '__main__':
+#     start = datetime.now()
+#     main()
+#     finish = datetime.now()
+#     print(f'Parsing takes: {finish - start} time')
 
 
 
@@ -1377,6 +1508,531 @@ my_page = BeautifulSoup(source,'lxml')
 
 
 
+
+
+
+
+# 1)	В текстовом файле посчитать количество строк, а также для каждой отдельной строки определить количество в ней символов и слов.
+
+
+# from bs4 import BeautifulSoup
+# import requests
+# import lxml
+
+
+# 'gkInnerInsetLeft'
+
+# def get_html(url: str) -> str:
+#     '''Эта функция получает HTML разметку по определенному сайту по URL'''
+#     response = requests.get(url)
+#     return response.text
+
+
+# def get_soup(html: str) -> BeautifulSoup:
+#     ''' Получает html разметку и структурирует ее в красивый bs'''
+#     soup = BeautifulSoup(html, 'lxml')
+#     return soup
+
+
+# def get_all_links():
+#     res = []
+#     i = 1
+#     while True:
+#         url = f'https://vesti.kg/'
+#         res.append(url)
+#         print(url)
+#         if i == 1:
+#             break
+#         i += 1
+#     return res
+
+
+
+
+
+
+
+
+
+# from bs4 import BeautifulSoup
+# import requests
+
+# response = requests.get('https://vesti.kg/').text
+# soup = BeautifulSoup(response, 'lxml')
+# container = soup.find('section', class_='gkMainbody').find('div', class_='gkInnerInsetLeft')
+# novosti = container.find_all('div')
+# title_list = []
+# for item in novosti:
+#     novosti= 'https://vesti.kg/' + item.find('', class_='titleColumn').find('a').get('href')
+#     film_name = item.find('td', class_='titleColumn').find('a').text
+#     data = {'name': film_name, 'link': film_link}
+#     title_list.append(data)
+
+# def get_link(title_list, name):
+#     for i in title_list:
+#         if name.lower() in i['name'].lower():
+#             return i['link']
+    
+
+# print(get_link(title_list, 'shawshank'))
+
+
+# from bs4 import BeautifulSoup
+# from requests import get
+# import csv
+
+
+# def get_html(url):
+#     response = get(url)
+#     return response.text
+
+# def get_soup(html):
+#     soup = BeautifulSoup(html, 'lxml')
+#     return soup
+
+# def get_data(link):
+#     html = get_html(link)
+#     soup = get_soup(html)
+#     div_title = soup.find_all('div', class_='itemBody')
+#     data= []
+#     for item in div_title:
+#         title_ = item.find('a').text.strip()
+#         href_ = 'https://vesti.kg/' + item.find('a').get('href')
+#         res = {
+#             'title': title_,
+#             'link': href_
+#         }
+#         data.append(res)
+
+#     return data
+
+# def prepare_csv():
+#     with open('titles.csv', 'w') as file:
+#         writer = csv.writer(file)
+#         writer.writerow([
+#                 '№',
+#                 'Titles',
+#                 'Link'
+#             ])
+    
+# def write_to_csv(data: list) -> None:
+#     with open('titles.csv', 'a') as file:
+#         fieldnames = ['№', 'Titles', 'Link']
+#         writer = csv.DictWriter(file, fieldnames) 
+#         count = 1
+#         for item in data:
+#             writer.writerow({
+#             '№' : count,
+#             'Titles' : item['title'],
+#             'Link' : item['link']
+#             })
+#             print(f'Parsing {count} title(s)!')
+#             count += 1
+
+# def main():
+#     prepare_csv()
+#     url = 'https://vesti.kg/'
+#     data = get_data(url)
+#     write_to_csv(data)
+
+# main()
+
+
+
+
+
+# import logging
+# from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
+# from telegram.ext import (
+#     Updater,
+#     CommandHandler,
+#     CallbackQueryHandler,
+#     ConversationHandler,
+# )
+
+# # Ведение журнала логов
+# logging.basicConfig(
+#     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
+# )
+
+# logger = logging.getLogger(__name__)
+
+# # Этапы/состояния разговора
+# FIRST, SECOND = range(2)
+# # Данные обратного вызова
+# ONE, TWO, THREE, FOUR = range(4)
+
+
+# def start(update, _):
+#     """Вызывается по команде `/start`."""
+#     # Получаем пользователя, который запустил команду `/start`
+#     user = update.message.from_user
+#     logger.info("Пользователь %s начал разговор", user.first_name)
+#     # Создаем `InlineKeyboard`, где каждая кнопка имеет 
+#     # отображаемый текст и строку `callback_data`
+#     # Клавиатура - это список строк кнопок, где каждая строка, 
+#     # в свою очередь, является списком `[[...]]`
+#     keyboard = [
+#         [
+#             InlineKeyboardButton("1", callback_data=str(ONE)),
+#             InlineKeyboardButton("2", callback_data=str(TWO)),
+#         ]
+#     ]
+#     reply_markup = InlineKeyboardMarkup(keyboard)
+#     # Отправляем сообщение с текстом и добавленной клавиатурой `reply_markup`
+#     update.message.reply_text(
+#         text="Запустите обработчик, выберите маршрут", reply_markup=reply_markup
+#     )
+#     # Сообщаем `ConversationHandler`, что сейчас состояние `FIRST`
+#     return FIRST
+
+
+# def start_over(update, _):
+#     """Тот же текст и клавиатура, что и при `/start`, но не как новое сообщение"""
+#     # Получаем `CallbackQuery` из обновления `update`
+#     query = update.callback_query
+#     # На запросы обратного вызова необходимо ответить, 
+#     # даже если уведомление для пользователя не требуется.
+#     # В противном случае у некоторых клиентов могут возникнуть проблемы.
+#     query.answer()
+#     keyboard = [
+#         [
+#             InlineKeyboardButton("1", callback_data=str(ONE)),
+#             InlineKeyboardButton("2", callback_data=str(TWO)),
+#         ]
+#     ]
+#     reply_markup = InlineKeyboardMarkup(keyboard)
+#    # Отредактируем сообщение, вызвавшее обратный вызов.
+#    # Это создает ощущение интерактивного меню.
+#     query.edit_message_text(
+#         text="Выберите маршрут", reply_markup=reply_markup
+#     )
+#     # Сообщаем `ConversationHandler`, что сейчас находимся в состоянии `FIRST`
+#     return FIRST
+
+
+# def one(update, _):
+#     """Показ нового выбора кнопок"""
+#     query = update.callback_query
+#     query.answer()
+#     keyboard = [
+#         [
+#             InlineKeyboardButton("3", callback_data=str(THREE)),
+#             InlineKeyboardButton("4", callback_data=str(FOUR)),
+#         ]
+#     ]
+#     reply_markup = InlineKeyboardMarkup(keyboard)
+#     query.edit_message_text(
+#         text="Вызов `CallbackQueryHandler`, выберите маршрут", reply_markup=reply_markup
+#     )
+#     return FIRST
+
+
+# def two(update, _):
+#     """Показ нового выбора кнопок"""
+#     query = update.callback_query
+#     query.answer()
+#     keyboard = [
+#         [
+#             InlineKeyboardButton("1", callback_data=str(ONE)),
+#             InlineKeyboardButton("3", callback_data=str(THREE)),
+#         ]
+#     ]
+#     reply_markup = InlineKeyboardMarkup(keyboard)
+#     query.edit_message_text(
+#         text="Второй CallbackQueryHandler", reply_markup=reply_markup
+#     )
+#     return FIRST
+
+
+# def three(update, _):
+#     """Показ выбора кнопок"""
+#     query = update.callback_query
+#     query.answer()
+#     keyboard = [
+#         [
+#             InlineKeyboardButton("Да, сделаем это снова!", callback_data=str(ONE)),
+#             InlineKeyboardButton("Нет, с меня хватит ...", callback_data=str(TWO)),
+#         ]
+#     ]
+#     reply_markup = InlineKeyboardMarkup(keyboard)
+#     query.edit_message_text(
+#         text="Третий CallbackQueryHandler. Начать сначала?", reply_markup=reply_markup
+#     )
+#     # Переход в состояние разговора `SECOND`
+#     return SECOND
+
+
+# def four(update, _):
+#     """Показ выбора кнопок"""
+#     query = update.callback_query
+#     query.answer()
+#     keyboard = [
+#         [
+#             InlineKeyboardButton("2", callback_data=str(TWO)),
+#             InlineKeyboardButton("4", callback_data=str(FOUR)),
+#         ]
+#     ]
+#     reply_markup = InlineKeyboardMarkup(keyboard)
+#     query.edit_message_text(
+#         text="Четвертый CallbackQueryHandler, выберите маршрут", reply_markup=reply_markup
+#     )
+#     return FIRST
+
+
+# def end(update, _):
+#     """Возвращает `ConversationHandler.END`, который говорит 
+#     `ConversationHandler` что разговор окончен"""
+#     query = update.callback_query
+#     query.answer()
+#     query.edit_message_text(text="See you next time!")
+#     return ConversationHandler.END
+
+
+# if __name__ == '__main__':
+#     updater = Updater("TOKEN")
+#     dispatcher = updater.dispatcher
+
+#     # Настройка обработчика разговоров с состояниями `FIRST` и `SECOND`
+#     # Используем параметр `pattern` для передачи `CallbackQueries` с
+#     # определенным шаблоном данных соответствующим обработчикам
+#     # ^ - означает "начало строки"
+#     # $ - означает "конец строки"
+#     # Таким образом, паттерн `^ABC$` будет ловить только 'ABC'
+#     conv_handler = ConversationHandler(
+#         entry_points=[CommandHandler('start', start)],
+#         states={ # словарь состояний разговора, возвращаемых callback функциями
+#             FIRST: [
+#                 CallbackQueryHandler(one, pattern='^' + str(ONE) + '$'),
+#                 CallbackQueryHandler(two, pattern='^' + str(TWO) + '$'),
+#                 CallbackQueryHandler(three, pattern='^' + str(THREE) + '$'),
+#                 CallbackQueryHandler(four, pattern='^' + str(FOUR) + '$'),
+#             ],
+#             SECOND: [
+#                 CallbackQueryHandler(start_over, pattern='^' + str(ONE) + '$'),
+#                 CallbackQueryHandler(end, pattern='^' + str(TWO) + '$'),
+#             ],
+#         },
+#         fallbacks=[CommandHandler('start', start)],
+#     )
+
+#     # Добавляем `ConversationHandler` в диспетчер, который
+#     # будет использоваться для обработки обновлений
+#     dispatcher.add_handler(conv_handler)
+
+#     updater.start_polling()
+#     updater.idle()
+
+
+
+
+
+# import telebot
+# from telebot import types # для указание типов
+# # import config
+
+# token = '6184082580:AAED8O9jnH6Fjw2QkCDwJ3HAA1qm4n7vis4'
+
+# bot = telebot.TeleBot(token)
+
+# @bot.message_handler(commands=['start'])
+# def start(message):
+#     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+#     btn1 = types.KeyboardButton("👋 Поздороваться")
+#     btn2 = types.KeyboardButton("❓ Задать вопрос")
+#     markup.add(btn1, btn2)
+#     bot.send_message(message.chat.id, text="Привет, {0.first_name}! Я тестовый бот для твоей статьи для habr.com".format(message.from_user), reply_markup=markup)
+    
+# @bot.message_handler(content_types=['text'])
+# def func(message):
+#     if(message.text == "👋 Поздороваться"):
+#         bot.send_message(message.chat.id, text="Привеет.. Спасибо что читаешь статью!)")
+#     elif(message.text == "❓ Задать вопрос"):
+#         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+#         btn1 = types.KeyboardButton("Как меня зовут?")
+#         btn2 = types.KeyboardButton("Что я могу?")
+#         back = types.KeyboardButton("Вернуться в главное меню")
+#         markup.add(btn1, btn2, back)
+#         bot.send_message(message.chat.id, text="Задай мне вопрос", reply_markup=markup)
+    
+#     elif(message.text == "Как меня зовут?"):
+#         bot.send_message(message.chat.id, "У меня нет имени..")
+    
+#     elif message.text == "Что я могу?":
+#         bot.send_message(message.chat.id, text="Поздороваться с читателями")
+    
+#     elif (message.text == "Вернуться в главное меню"):
+#         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+#         button1 = types.KeyboardButton("👋 Поздороваться")
+#         button2 = types.KeyboardButton("❓ Задать вопрос")
+#         markup.add(button1, button2)
+#         bot.send_message(message.chat.id, text="Вы вернулись в главное меню", reply_markup=markup)
+#     else:
+#         bot.send_message(message.chat.id, text="На такую комманду я не запрограммировал..")
+
+# bot.polling(none_stop=True)
+
+
+# token = '6184082580:AAED8O9jnH6Fjw2QkCDwJ3HAA1qm4n7vis4'
+
+# bot = telebot.TeleBot(token)
+# from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
+# from telegram.ext import (
+#     Application,
+#     CommandHandler,
+#     ContextTypes,
+#     ConversationHandler,
+#     MessageHandler,
+#     filters,
+# )
+
+# logging.basicConfig(
+#     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+# )
+# logger = logging.getLogger(__name__)
+
+# CHOOSING, TYPING_REPLY, TYPING_CHOICE = range(3)
+
+# reply_keyboard = [
+#     ["Age", "Favourite colour"],
+#     ["Number of siblings", "Something else..."],
+#     ["Done"],
+# ]
+# markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
+
+# def facts_to_str(user_data: Dict[str, str]) -> str:
+#     """Вспомогательная функция для форматирования 
+#     собранной информации о пользователе."""
+#     facts = [f"{key} - {value}" for key, value in user_data.items()]
+#     return "\n".join(facts).join(["\n", "\n"])
+
+# async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+#     """Начvало разговора, просьба ввести данные."""
+#     await update.message.reply_text(
+#         "Hi! My name is Doctor Botter. I will hold a more complex conversation with you. "
+#         "Why don't you tell me something about yourself?",
+#         reply_markup=markup,
+#     )
+#     return CHOOSING
+
+# async def regular_choice(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+#     """Запрос информации о выбранном предопределенном выборе."""
+#     text = update.message.text
+#     context.user_data["choice"] = text
+#     await update.message.reply_text(f"Your {text.lower()}? Yes, I would love to hear about that!")
+#     return TYPING_REPLY
+
+# async def custom_choice(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+#     """Запрос описания пользовательской категории."""
+#     await update.message.reply_text(
+#         'Alright, please send me the category first, for example "Most impressive skill"'
+#     )
+#     return TYPING_CHOICE
+
+# async def received_information(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+#     """Store info provided by user and ask for the next category."""
+#     user_data = context.user_data
+#     text = update.message.text
+#     category = user_data["choice"]
+#     user_data[category] = text
+#     del user_data["choice"]
+
+#     await update.message.reply_text(
+#         "Neat! Just so you know, this is what you already told me:"
+#         f"{facts_to_str(user_data)}You can tell me more, or change your opinion"
+#         " on something.",
+#         reply_markup=markup,
+#     )
+#     return CHOOSING
+
+# async def done(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+#     """Вывод собранной информации и завершение разговора."""
+#     user_data = context.user_data
+#     if "choice" in user_data:
+#         del user_data["choice"]
+
+#     await update.message.reply_text(
+#         f"I learned these facts about you: {facts_to_str(user_data)}Until next time!",
+#         reply_markup=ReplyKeyboardRemove(),
+#     )
+#     user_data.clear()
+#     return ConversationHandler.END
+
+
+# if __name__ == "__main__":
+#     application = Application.builder().token("TOKEN").build()
+
+#     conv_handler = ConversationHandler(
+#         entry_points=[CommandHandler("start", start)],
+#         states={
+#             CHOOSING: [
+#                 MessageHandler(
+#                     filters.Regex("^(Age|Favourite colour|Number of siblings)$"), regular_choice
+#                 ),
+#                 MessageHandler(filters.Regex("^Something else...$"), custom_choice),
+#             ],
+#             TYPING_CHOICE: [
+#                 MessageHandler(
+#                     filters.TEXT & ~(filters.COMMAND | filters.Regex("^Done$")), regular_choice
+#                 )
+#             ],
+#             TYPING_REPLY: [
+#                 MessageHandler(
+#                     filters.TEXT & ~(filters.COMMAND | filters.Regex("^Done$")),
+#                     received_information,
+#                 )
+#             ],
+#         },
+#         fallbacks=[MessageHandler(filters.Regex("^Done$"), done)],
+#     )
+
+#     application.add_handler(conv_handler)
+#     # Запуск бота.
+#     application.run_polling()
+
+
+
+
+
+# from bs4 import BeautifulSoup
+# from requests import get
+
+
+# html = get('https://enter.kg/').text
+# soup = BeautifulSoup(html, 'html.parser')
+# container = soup.find('ul', class_='VMmenu')
+# category_list = [x.text for x in container.find_all('a')]
+
+# def find_category(categories, keyword):
+#     return [x for x in categories if keyword.lower() in x.lower()]
+    
+# print(find_category(category_list, 'Ноутбуки'))
+
+
+
+
+
+# https://docs-python.ru/packages/biblioteka-python-telegram-bot-python/ ## эта ссылка как создать бота по шагам
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ # desc1 = car.find('p', class_='year-miles').text.strip()
+        # desc2 = car.find('p', class_='body-type').text.strip()
+        # desc3 = car.find('p', class_='volume').text.strip()
+        # description = f'{desc1} {desc2} {desc3}'
 
 
 
