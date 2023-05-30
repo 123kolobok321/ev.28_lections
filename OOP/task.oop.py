@@ -854,6 +854,867 @@
 # print(math1.get_sum())
 # print(math1.get_mul_table())  
        
+        
+
+
+#
+
+     
+
+
+
+# class Dog:
+#     def sound(self):
+#         print('Гав')
+
+# class Cat:
+#     def sound(self):
+#         print('Мяу')
+
+
+# class Pet:
+#     def __new__(cls):
+#         other = choice([Dog, Cat, Lion])
+#         instance = super().__new__(other)
+#         print(f'I\'m {type(instance).__name__}')
+#         return instance
+    
+#     def __init__(self) -> None:
+#         print('Pet never was called!')
+
+
+# pet = Pet()
+# pet.sound()
+
+
+
+
+
+
+
+# class Cat:
+#     def __init__(self, name):
+#         self.name = name
+        
+
+#     def info(self):
+#         print(f"I am a cat. My name is {self.name}")
+
+#     def voice(self):
+#         print("Мяу")
+
+# class Dog:
+#     def __init__(self, name):
+#         self.name = name
+        
+
+#     def info(self):
+#         print(f"I am a dog. My name is {self.name}")
+
+#     def voice(self):
+
+#         print("Гав")
+
+# cat1 = Cat("barsik")
+# dog1 = Dog("rex")
+# cat1.voice()
+# dog1.voice()
+
+
+
+
+
+
+
+# 3) Создайте классы Mercury, Venus, Jupiter, которые наследуют метод __init__ от родительского класса Planet. У объектов данного класса должен быть аттрибут orbit, орбита в классе Venus состовляет 225 земных дней, Mercury 88 земных дней, а на Jupiter 12 дней. У всех этих классов должен быть метод get_age, принимающий возраст в переменную earth_age и расчитывающий ваш возраст на данной планете.
+# Метод должен возвращать возраст на Mercury в годах, на Venus в днях и на Jupiter в часах. Например, если возраст earth_age равен 20:
+
+# !!!!!
+# обязательное условие: создание абстрактного метода
+# !!!!!
+
+# from abc import ABC, abstractmethod
+# from datetime import datetime
+#.strptime()
+# class Planet:
+#     def __init__(self, orbit, get_age, earth_age):
+#         self.orbit = orbit
+#         self.get_age = get_age
+#         self.earth_age = earth_age
+
+# @abstractmethod
+# class Mercury(Planet):
+#     def __init__(self, orbit, get_age, earth_age):
+#         super().__init__(orbit, get_age, earth_age)
+#         return f'состовляет {self.orbit} земных дней'
+
+# @abstractmethod
+# class Venus(Planet):
+#     def __init__(self, orbit, get_age, earth_age):
+#         super().__init__(orbit, get_age, earth_age)
+#         return f'состовляет {self.orbit} земных дней'
+    
+# @abstractmethod    
+# class Jupiter(Planet):
+#     def __init__(self, orbit, get_age, earth_age):
+#         super().__init__(orbit, get_age, earth_age)
+#         return f'состовляет {self.orbit} земных дней'
+
+   
+# mercury = Mercury(Planet)
+# venus = Venus(Planet)
+# jupiter = Jupiter(Planet)
+# mercury.orbit(88)
+# venus.orbit(225)
+# jupiter.orbit(12)
+
+
+
+
+
+
+
+
+
+
+# 2) Создайте 3 класса:
+# Bird, Animal, Plant
+# класс Bird должен иметь методы: fly(), grow(), sound(). Animal: sound(), run(), grow(). Plant: grow(), photosynthesize()
+# каждый метод должен просто принтить действие. Например: def fly(self): print('я лечу')
+
+# !!!!
+# Обязательное условие: использовать абстракцию. Если не переопределить общий метод должна выходить ошибка
+# !!!!!
+
+
+
+
+
+
+# 1)Создайте два класса A и B. В обоих классах есть метод count. В классе A он подсчитывает, сколько гласных букв в слове, которое передается в качестве аргумента в методе count, а в классе B он подсчитывает количество согласных. Создайте объекты от этих классов. С помощью list comprehension создайте список из результатов работы метода count обоих объектов.
+
+# !!!! 
+# Обязательное условие: если в классе A или B не переопределить метод count должна выйти ошибка
+# !!!!
+
+
+# def count_symbols(str_):
+#     glass = 0
+#     sogls = 0
+#     symb = 0
+#     for x in str_:
+#         if x.lower() in 'аяуюоеёэиы':
+#             glass += 1
+#         elif x.lower() in 'бвгджзйклмнпрстфхцчшщ':
+#             sogls +=1
+#         else:
+#             symb += 1
+    
+#     return f'Количество гласных: {glass}, согласных: {sogls}, остальных символов: {symb}'
+
+# print(count_symbols('Мурат супер!'))
+
+
+
+
+
+# class CustomNumber:
+
+#     def __new__(cls, *args, **kwargs):
+#         number = abs(args[0])
+#         instance = super().__new__(cls)
+#         instance.number = number
+#         return instance
+       
+#     def __sub__(self, other):
+#         res = self.number + other.number
+#         return res
+    
+#     def __add__(self, other):
+#         res = self.number - other.number
+#         return res
+    
+#     def __mul__(self, other):
+#         res = self.number / other.number
+#         return res
+    
+#     def __truediv__(self, other):
+#         res = self.number * other.number
+#         return res
+    
+#     def __eq__(self, other):
+#         return self.number != other.number
+    
+#     def __ne__(self, other):
+#         return self.number == other.number
+    
+#     def __lt__(self, other):
+#         return self.number > other.number
+    
+#     def __gt__(self, other):
+#         return self.number < other.number
+    
+#     def __le__(self, other):
+#         return self.number <= other.number
+    
+#     def __ge__(self, other):
+#         return self.number >= other.number
+         
+
+    
+
+
+# num1 = CustomNumber(10)
+# num2 = CustomNumber(5)
+
+# print(num1 + num2)  # 5
+# print(num2 - num1)  # 15
+# print(num1 * num2)  # 2.0
+# print(num2 / num1)  # 0.5
+
+# print(num1 == num2)  # False
+# print(num1 != num2)  # True
+# print(num1 < num2)   # False
+# print(num1 > num2)   # True
+# print(num1 >= num2)  # False
+# print(num1 <= num2)  # True
+
+
+
+
+
+
+
+
+# class ToDo: 
+#     def __init__(self,string): 
+#         self.todo = string 
+#         self.instances = dict()
+
+#     def give_priority(self,priority): 
+#         ToDo.instances[priority] = self.todo 
+
+#     def list_of_tasks(self,): 
+#         return sorted(ToDo.instances.items())
+    
+# priority = ToDo()
+# priority.list_of_tasks()
+   
+# priority = ToDo()
+# priority.list_of_tasks()
+   
+# priority = ToDo()
+# priority.list_of_tasks()
+
+
+
+# dict_ = {'a': 1, 'b': 2, 'c': 1}
+# print(dict_.items())
+
+# dict_ = {'a': 32, 'b': 56, 'c': 37, 'd': 21}
+# print(max(dict_.values()))
+
+# dict_ = {'a': 32, 'b': 56, 'c': 37, 'd': 21}
+# print(min(dict_.values()))
+
+# dict1 = {'a': 3, 'b': 4, 'c': 9, 'd': 5, 'e': 6} 
+# dict2 = {}
+
+
+# dict1 = {'a': 3, 'b': 4, 'c': 9, 'd': 5, 'e': 6} 
+# dict2 = {k:v if v % 2 == 0 else 1 for (k,v) in dict1.items()} 
+# print(dict2)
+
+
+
+# class BaseEstimator:
+#     def __init__(self, name, **kwargs):
+#         self.name = name
+#         super().__init__(**kwargs)
+
+#     def __repr__(self):
+#         return f', '.join(f'{k}: {v}' for k, v in vars(self).items())
+
+# class ServingMixin:
+#     def __init__(self, mode, **kwargs):
+#         super().__init__(**kwargs)
+#         self.mode = mode
+
+# class DecisionTree(BaseEstimator, ServingMixin):
+#     def __init__(self, depth, **kwargs):
+#         super().__init__(**kwargs)
+#         self.depth = depth
+
+# dt = DecisionTree(name='Request Time DT', depth=1, mode='online')
+# print(dt)
+# print(dt.mode)
+
+
+# def divide(a, b):
+#     return a / b
+    
+# print(divide(5, 10)) 
+
+
+# def get_elems(my_list):
+#       for element in my_list:
+#           print(element)   
+
+# get_elems(['first', 'second', 'third'])
+
+
+# dict_={1:'a', 2:'b', 3: 'c', 4:'d'} 
+# def dictionary(dict_): 
+#     for k in dict_: 
+#         print(k) 
+        
+# dictionary(dict_)
+
+
+# def check_type(elem): 
+#     if type(elem) == str: 
+#         print('это строка') 
+#     elif type(elem) == int: 
+#         print('это число') 
+#     else: 
+#         print('что-то другое') 
+
+# check_type(10) 
+
+# num = 6
+# def check(num):
+#     if num % 2 != 0:
+#         return ("It is odd number")
+#     else: 
+#         return ("It is even number")
+
+# print(check(num)) 
+
+
+# # num = 6 
+# # def check(num): 
+# #     if num % 2 == 0: 
+# #         return("It is even number") 
+# #     else: 
+# #         return("It is odd number")
+
+
+
+
+# 1) Создайте класс MyString, который будет наследоваться от str.
+# Определите 2 своих метода:
+# append, который будет принимать строку и добавлять её в конец исходной
+# pop, который удаляет из строки последний элемент и возвращает его.
+# Пример:
+# example = MyString('String')
+# example.append('hello')
+# print(example) -> 'Stringhello'
+# print(example.pop()) -> 'o'
+# print(example) -> 'Stringhell'
+
+
+# class MyString(str):
+#     def append(self, str_):
+#         self.str_ = str_
+
+        
+#     def pop(self, pop_):
+#         self.pop_ = pop_   
+
+
+# example = MyString('String')
+# example.append('hello')
+# print(example, 'Stringhello') 
+# print(example.pop('o'))  
+# print(example, 'Stringhell') 
+
+
+# 2)Dollar.
+# Создайте функцию dollarize, которая принимает дробное число (float) и переводит его в
+# долларизованный формат:
+# dollarize(123456.78901) -> "$123,456.80"
+# dollarize(-123456.7801) -> "-$123,456.78"
+# dollarize(1000000) -> "$1,000,000"
+# Создайте класс MoneyFmt, который содержит один единственный атрибут amount и 4 метода:
+# init - инициализирует значение атрибута amount
+# update - задаёт объекту новое значение amount
+# repr - возвращает значение float
+# str - метод, который реализует логику функции dollarize()
+# //Вывод должен выглядеть следующим образом:
+# cash = MoneyFmt(12345678.021)
+# print(cash) -- выводит "$12,345,678.02"
+# cash.update(100000.4567)
+# print(cash) -- выводит "$100,000.46"
+# cash.update(-0.3)
+# print(cash) -- выводит "-$0.30"
+# repr(cash) -- выводит -0.3
+
+# class MoneyFmt:
+#     def dollarize(self, amount):
+#         self.amount = amount
+
+#     def __init__(self, amount):
+#         self.amount = amount
+
+#     def update(self,amount):
+#         self.amount = amount
+
+#     def __repr__(self, amount) -> str:
+#         self.amount = amount
+        
+#     def __str__(self, amount) -> str:
+#         self.amount = amount
+        
+
+
+# cash = MoneyFmt(12345678.021)
+# print(cash.amount) 
+# cash.update(100000.4567)
+# print(cash.amount) 
+# cash.update(-0.3)
+# print(cash.amount) 
+# repr(cash.amount) 
+
+
+# 3) Велосипед.
+# Создайте класс Bike в котором будут инициализированы следующие атрибуты: self.cost
+# (стоимость)
+# self.make (производитель)
+# self.model (модель)
+# self.year (год выпуска)
+# self.condition (состояние)
+# self._sale_price = None (цена для продажи, по умолчанию None)
+# self.sold = False (продан или нет, по умолчания False)
+# Также укажите мин. прибыль, которая должна прийти с продажи велосипеда. Создайте метод
+# для указания цены для продажи, который принимает цену и если она меньше стоимости, то
+# ставит дефолтную цену для продажи (стоимость + мин. прибыль).
+# Для ремонта велосипеда будет использоваться метод service, которая принимает стоимость
+# ремонта и новое состояние велосипеда, соответственно продажная цена велосипеда
+# возрастает на столько, сколько обошелся ремонт и возвращает нынешнюю цену для продажи.
+# При продаже велосипеда будет использоваться метод sell, который меняет значение self.sold на
+
+# True и возвращает прибыль с продажи.
+# Допишите метод get_default_bike, который будет создавать дефолтный велосипед. Создайте
+# объект bike = Bike.get_default_bike() и используете его методы и получите значения всех его
+# атрибутов.
+# """
+
+
+# class Bike:
+#     def __init__(self, cost, make, model, year, condition, _sale_price, sold) -> None:
+#         self.cost = cost
+#         self.make = make
+#         self.model = model
+#         self.year = year
+#         self.condition = condition
+#         self._sale_price = None
+#         self.sold = False
+
+#     def get_default_bike(self):
+
+    
+
+#     def service(self, _sale_price):
+
+
+# bike = Bike.get_default_bike()
+
+
+
+# class ToDo: 
+#     def __init__(self,string): 
+#         self.todo=string 
+#         ToDo.instances=dict() 
+    
+#     def give_priority(self,priority): 
+#         ToDo.instances[priority]=self.todo 
+    
+#     def list_of_tasks(self): 
+#         return sorted(ToDo.instances.items()) 
+
+# var1=ToDo('ckelele') 
+# var1.give_priority(2) 
+# var2=ToDo('lelelele') 
+# var2.give_priority(3) 
+# var3=ToDo('HIOHOHO')
+# print('instances')
+
+
+# class Parent: 
+#     def __init__(self): 
+#          pass 
+
+#     def method(self): 
+#          return 'Метод класса Parent' 
+
+# class Child(Parent): 
+#      pass 
+
+
+# obj = Child() 
+# print(obj.method()) 
+
+# class Class1:
+#     def first(self):
+#         pass
+
+#     def second(self):
+#         pass
+
+# class Class2(Class1):
+#     def fourth(self):
+#         pass
+
+#     def third(self):
+#         pass
+
+# obj = Class2()        
+# obj.second()
+# obj.first()
+# obj.fourth()
+# obj.third()
+
+
+# class Transport: 
+#      def move(self): 
+#          print("движется:") 
+
+# class Boat(Transport): 
+#      def move(self): 
+#          super().move() 
+#          print("плывет") 
+
+# class Car(Transport): 
+#      def move(self): 
+#          super().move()  
+#          print("едет") 
+
+# boat = Boat() 
+# boat.move() 
+# car = Car() 
+# car.move() 
+
+# class A:
+#     def method1(self):
+#         print('Основной функционал')
+
+# class B(A):
+#     def method1(self):
+#         super().method1()
+#         print('Дополнительный функционал')
+
+# obj = B()
+# obj.method1()
+
+# class Number(int): 
+#      def __init__(self, value): 
+#          self.value = value
+    
+#      def count_digits(self): 
+#          digits = len(str(self.value)) 
+#          return digits 
+
+# num = Number(123) 
+# print(num.count_digits()) 
+
+
+
+# class MyString(str): 
+#     def __init__(self, stroka1): 
+#         self.stroka1 = stroka1 
+    
+#     def append(self, stroka2): 
+#         self.stroka2 = stroka2 
+#         self.stroka1 = self.stroka1 + self.stroka2 
+#         return self.stroka1 
+    
+#     def pop(self): 
+#         last_w = self.stroka1[-1] 
+#         self.stroka1 = self.stroka1[:-1] 
+#         return last_w 
+    
+#     def __str__(self) -> str: 
+#         return self.stroka1
+
+
+# example = MyString('String') 
+# example.append('hello') 
+# print(example) 
+
+
+# class MyList(list): 
+#      def append(self, object): 
+#          print('добавил!') 
+#          return super().append(object) 
+
+# lst = MyList([1, 2, 3]) 
+# print(lst.append(4)) 
+# print(lst)
+
+
+# class MyDict(dict): 
+    
+#     def get(self,key,value = 'Are you kidding?'): 
+#         return dict.get(self,key,value) 
+
+# obj_dict = MyDict({'some_title': 2}) 
+# print(obj_dict.get('some'))
+
+
+
+# def add(x, y): 
+#     print(x + y) 
+
+# add('makers ','bootcamp') 
+# add([1, True], [3, False]) 
+# add(1, 2)
+
+
+# a = '12342342345' 
+# b = [1,['a',5,6],2,3,4,5] 
+# c = {1:'a', 2: {'a': 1, 'b': 2}, 3:'c'} 
+# lst = [a, b, c]  
+# for x in lst: 
+#     print(len(x))
+
+
+    
+        
+# class Person: 
+#     name = "John" 
+#     _phone_number = "+996 557 55 17 57" 
+#     __card_number = "9999 9999 9999 9999" 
+    
+#     @property 
+#     def number(self): 
+#         return self.__card_number 
+
+# john = Person() 
+# print(john.name) 
+# print(john._phone_number) 
+# print(john.number)
+
+
+# class Person: 
+#     def __init__(self, name, phone_number, card_number): 
+#         self.name = name 
+#         self._phone_number = phone_number 
+#         self.__card_number = card_number 
+    
+#     @property 
+#     def number(self): 
+#         return self.__card_number 
+        
+# john = Person("John", "+996 557 55 17 57", "9999 9999 9999 9999") 
+# print(john.name) 
+# print(john._phone_number) 
+# print(john.number)
+
+
+
+# def is_palindrome(str): 
+#     if str.upper() == str.upper()[::-1]: 
+#         return True 
+#     else: 
+#         return False 
+# print(is_palindrome("sos"))
+
+# def max_num(a, b):
+#     return max(a, b)
+# print(max_num(10, 12))
+
+
+
+# f = open('text.txt')
+# f.read()
+
+
+# handle = open("test.txt", "r")
+# for line in handle:
+#     print(line)
+# handle.close()
+
+
+
+
+# import json
+# json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])
+
+
+# import json
+# json.loads('["foo", {"bar":["baz", null, 1.0, 2]}]')
+
+# class Bag:
+#     brand = 'GUCCHI'
+#     def buy_bag(self, brand):
+#         self.brand = brand
+# bag1 = Bag()
+# bag2 = Bag()
+# bag1.buy_bag('CHANEL')
+# print(bag1.brand)
+# print(bag2.brand)
+
+
+# class Lipstick:
+#     color = 'red'
+#     def set_color(self, color):
+#         self.color = color
+# Lipstick().set_color('pink')
+# print(Lipstick().color)
+
+
+
+# class ToDo:
+#     instances = {}
+    
+#     def __init__(self, task):
+#         self.task = task
+           
+#     def give_priority(self, priority):
+#         self.instances[priority] = (self.task)
+
+#     def list_of_tasks(self):
+#         return sorted(ToDo.instances.items())
+
+# obj = ToDo('to go to supermarket')
+# obj.give_priority(2)
+# print(obj.list_of_tasks())    
+# print(obj.give_priority(2))
+# us1 = ToDo('Сходить в школу')
+# print(us1.task)
+# us1.give_priority(1)
+# print(ToDo.instances)
+# us1 = ToDo('Поесть суши')
+# us1.give_priority(3)
+# print(ToDo.instances)
+# print(us1.list_of_tasks())
+
+
+
+# class Person:
+   
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+    
+#     def display(self):
+#         return  f'name:{self.name}, age:{self.age}' 
+   
+# class Student(Person):
+#     def __init__(self, name, age, faculty):
+#        self.faculty = faculty
+#        super().__init__(name, age)
+
+#     def display_student(self):
+#         return  f'name:{self.name}, age:{self.age}, faculty:{self.faculty}' 
+
+# obj_student = Student('Rick', '21', 'science')
+# print(obj_student.display() )
+# print(obj_student.display_student())
+
+
+class GraphicalEntity:
+    def __init__(self, pos_x, pos_y, size_x, size_y):
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+
+        self.size_x = size_x
+        self.size_y = size_y
+class Button(GraphicalEntity):
+    def __init__(self, pos_x, pos_y, size_x, size_y):
+        super().__init__(pos_x, pos_y, size_x, size_y)
+        self.status = False
+def toggle(self):
+    self.status = not self.status
+
+class LimitSizeMixin:
+    def __init__(self, pos_x, pos_y, size):
+        size_x = min(size_x, 500)
+        size_y = min(size_y, 400)
+        super().__init__(pos_x, pos_y, size_x, size_y)
+
+class LimitSizeButton(Button, LimitSizeMixin):
+    pass
+b = LimitSizeButton(10, 20, 200, 100)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

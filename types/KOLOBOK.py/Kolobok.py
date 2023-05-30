@@ -2013,26 +2013,248 @@
 
 
 # https://docs-python.ru/packages/biblioteka-python-telegram-bot-python/ ## эта ссылка как создать бота по шагам
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- # desc1 = car.find('p', class_='year-miles').text.strip()
+# desc1 = car.find('p', class_='year-miles').text.strip()
         # desc2 = car.find('p', class_='body-type').text.strip()
         # desc3 = car.find('p', class_='volume').text.strip()
         # description = f'{desc1} {desc2} {desc3}'
+
+
+
+# 2) Создайте 3 класса:
+# Bird, Animal, Plant
+# класс Bird должен иметь методы: fly(), grow(), sound(). Animal: sound(), run(), grow(). Plant: grow(), photosynthesize()
+# каждый метод должен просто принтить действие. Например: def fly(self): print('я лечу')
+
+# class Bird:
+#     def fly(self):
+#        print('я лечу')
+    
+#     def grow(self):
+#        pass
+    
+#     def sound(self):
+#        pass
+    
+# class Animal:
+#     def sound(self):
+#        pass
+        
+#     def run(self):
+#        pass
+    
+#     def grow(self):
+#        pass
+    
+# class Plant:
+#    def grow(self):
+#       pass
+#    def photosynthesize(self):
+#       pass
+   
+# bird = Bird()
+# bird.fly()
+# bird.grow()
+# bird.sound()
+# animal = Animal()
+# animal.sound()
+# animal.grow()
+# animal.run()
+# plant = Plant()
+# plant.grow()
+# plant.photosynthesize()
+
+
+
+# 3) Создайте классы Mercury, Venus, Jupiter, которые наследуют метод __init__ от родительского класса Planet. У объектов данного класса должен быть аттрибут orbit, орбита в классе Venus состовляет 225 земных дней, Mercury 88 земных дней, а на Jupiter 12 дней. У всех этих классов должен быть метод get_age, принимающий возраст в переменную earth_age и расчитывающий ваш возраст на данной планете.
+# Метод должен возвращать возраст на Mercury в годах, на Venus в днях и на Jupiter в часах. Например, если возраст earth_age равен 20:
+
+
+# from abc import ABC, abstractmethod
+# class Planet(ABC):
+#     def __init__(self, orbit):
+#        self.orbit = orbit
+
+#     @abstractmethod       
+#     def get_age(self):
+#         ...
+        
+      
+# class Mercury(Planet):
+#     def __init__(self, orbit):
+#        super().__init__(orbit)
+       
+#     def get_age(self, earth_age):
+#         return f'на Меркурии ваш возраст составляет {int(earth_age * 365 /self.orbit)} лет'
+
+# class Venus(Planet):
+#     def __init__(self, orbit):
+#        super().__init__(orbit)
+    
+#     def get_age(self, earth_age):
+#         return f'на Венере ваш возраст составляет {round((earth_age / (self.orbit / 365))*365)} дней'
+    
+# class Jupiter(Planet):
+#     def __init__(self, orbit):
+#        super().__init__(orbit)
+
+#     def get_age(self, earth_age):
+#         return f'на Юпитере ваш возраст составляет {round(earth_age * 365 // self.orbit * 365 * 24)} часов'
+   
+# mercury = Mercury(88)
+# venus = Venus(225)
+# jupiter = Jupiter(12)
+
+# print(venus.get_age(20)) 
+# print(jupiter.get_age(20)) 
+# print(mercury.get_age(20))
+
+
+
+
+
+
+
+
+
+
+# 1)Создайте два класса A и B. В обоих классах есть метод count. В классе A он подсчитывает, сколько гласных букв в слове, которое передается в качестве аргумента в методе count, а в классе B он подсчитывает количество согласных. Создайте объекты от этих классов. С помощью list comprehension создайте список из результатов работы метода count обоих объектов.
+
+# class Person:
+#     def __init__(self, name, phone_number, card_number):
+#         self.name = self.__validate_name(name) 
+#         self._phone_number = phone_number
+#         self.__card_number = card_number
+
+#     def __validate_name(self, name):
+#         if len(name) < 2:
+#             name = "John"
+#             return name
+#         else:
+#             return name.capitalize()
+#     @property
+#     def number(self):
+#         return self._phone_number
+
+#     @property
+#     def card_number(self):
+#         return self.__card_number
+    
+
+    
+# sam = Person("SAM", "+996 557 55 17 57", "9999 9999 9999 9999")
+# print(sam.name)
+# print(sam.number)
+# print(sam.card_number)
+
+
+
+# dict_ = {'a': None, 'b': 1, 'c': 2, 'd': None, 'e': 3}
+# dict_ = {k: v for k,v in dict_.items() if v is None}
+# print(dict_)
+
+
+
+# dict1 = {25: 'apple', 26: 'orange', 27: 'banana'} 
+# dict2 = {k ** 2: v for k,v in dict1.items()}
+# print(dict2)
+
+
+# list_ = ['Bootcamp', 'Makers', 'coding', 'hello']
+# dict_ = {k: len(k) for k in list_}
+# print(dict_)
+
+# dict_ = {'Makers': 6, 'coding': 6, 'hello': 5}
+# dictmax = max(dict_.values())
+# for k,v in dict_.items():
+#     if v == dictmax:
+#         print(k)
+
+
+# dict1 = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
+# dict2 = {k: v ** 3  for k,v in dict1.items()}
+# print(dict2)
+
+
+# dict_ = {'a': {'e': 32}, 'b': {'f': 36}, 'c': {'j': 37}, 'd': {'h': 21}}
+# dict_ = {k: v_inner for k,v_outer in dict_.items() for v_inner in v_outer.values()}
+# print(dict_)
+
+
+
+# dict_ = {'a': {'e': 32}, 'b': {'f': 36}, 'c': {'j': 37}, 'd': {'h': 21}} 
+# dict1 = dict_.copy()
+# for k, v in dict1.items(): 
+#     for value in v.values(): 
+#         dict_[k]=value 
+                
+# print(dict_)
+
+# dict1 = {'a': {'d': 1, 'e': 4}, 'b': {'f': 2, 'j': 4}, 'c': {'h': 3, 'i': 9}}
+# dict2 = {}
+# for k, v in dict1.items():
+#     a = 1
+#     for value in v.values(): 
+#         a = a * value
+#         dict2[k] = a 
+# print(dict2)
+
+# import math
+# dict1 = {'a': {'d': 1, 'e': 4}, 'b': {'f': 2, 'j': 4}, 'c': {'h': 3, 'i': 9}}
+# dict2 = {k: math.prod(v.values()) for k,v in dict1.items()}
+# print(dict2)
+
+
+
+# list_ = ['hello', 23, 56, 'world', 928, 'Makers', 456, 'word', 223, 89, 'bootcamp', 'coding']
+# list_str = [x for x in list_ if isinstance(x, str)]
+# list_int = [x for x in list_ if isinstance(x, int)]
+# dict_ = dict(zip(list_str, list_int))
+# print(dict_)
+
+
+
+
+# dict_ = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0} 
+# sorted_dict = {k:item for item in sorted(dict_.values()) for k,v in dict_.items() if item == v} 
+# print(sorted_dict)
+
+
+# dict_ = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+# sorted_dict = {}
+# for item in sorted(dict_.values()):
+#     for k,v in dict_.items():
+#         if item == v:
+#             sorted_dict[k] = item
+
+# print(sorted_dict)
+
+
+# dict_ = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+# sorted_dict = dict(sorted(list(dict_.items()), key=lambda x: x[1]))
+# print(sorted_dict)
+
+# dict_ = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+# sorted_dict = dict(sorted(list(dict_.items()), key=lambda x: x[1], reverse= True))
+# print(sorted_dict)
+
+# dict_ = {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+# key = input()
+# list_ = [k for k in dict_ if k == int(key)]
+
+# if len(list_) > 0:
+#     print('Key is present in the dictionary')
+# else:
+#     print('Key is not present in the dictionary')
+
+
+
+    
+
+
+
+
+
+
 
 
 
