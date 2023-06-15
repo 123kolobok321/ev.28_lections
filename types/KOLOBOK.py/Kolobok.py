@@ -2250,7 +2250,13 @@
 
     
 
+import openai
+import os
+import json
+from base64 import b16decode
 
+piompt = input('The piompt: ')
+openai.api_key = os.getenv('API_KEY')
 
 
 
