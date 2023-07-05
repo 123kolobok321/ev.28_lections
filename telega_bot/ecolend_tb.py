@@ -1,9 +1,8 @@
-
-
 import telebot
 from telebot import types
 from bs4 import BeautifulSoup
 from requests import get
+
 # from my_token import token
 
 bot = telebot.TeleBot('6184082580:AAED8O9jnH6Fjw2QkCDwJ3HAA1qm4n7vis4')
@@ -13,12 +12,14 @@ btn1 = types.KeyboardButton('/start')
 btn2 = types.KeyboardButton('Каталог')
 markup.add(btn1, btn2)
 
+
 @bot.message_handler(commands=['start', 'text'])
 def start_message(message):
     chat_id = message.chat.id
     msg = bot.send_message(chat_id, 'Нажмините на кнопку каталог', reply_markup=markup)
     bot.register_next_step_handler(msg, find_the_song)
-    
+
+
 def find_the_song(message):
     url = f'https://ecoland.kg/product/voda-legenda-shoro-1500-ml/'
     html = get_html(url)
@@ -42,15 +43,18 @@ def find_the_song(message):
         all_msg = ''.join(msg_list)
         bot.send_message(chat_id, all_msg)
 
+
 def get_html(url: str) -> str:
     '''Эта функция получает HTML разметку по определенному сайту по URL'''
     response = get(url)
     return response.text
 
+
 def get_soup(html: str) -> BeautifulSoup:
     ''' Получает html разметку и структурирует ее в красивый bs'''
     soup = BeautifulSoup(html, 'lxml')
     return soup
+
 
 def get_data_songs(container):
     res_search = []
@@ -59,29 +63,21 @@ def get_data_songs(container):
         link = item.find('a').get('href')
         kat = item.find('a').text
         data = {
-                'kat': kat,
-                'link': link
-            }
+            'kat': kat,
+            'link': link
+        }
         res_search.append(data)
-    
+
     return res_search
+
 
 def no_search_result(message):
     chat_id = message.chat.id
     msg = bot.send_message(chat_id, 'Уточни запрос. Начнем сначала!')
     start_message()
 
+
 bot.polling(none_stop=True, interval=0)
-
-
-
-
-
-
-
-
-
-
 
 # keyboard = types.InlineKeyboardMarkup()
 # url_button = types.InlineKeyboardButton(text="Перейти к оплате", url="https://example.com")
@@ -90,7 +86,3 @@ bot.polling(none_stop=True, interval=0)
 # @bot.message_handler(content_types=["text"])
 # def foo(message):
 #     bot.send_message(message.chat.id, "Для пополнения баланса нажмите на кнопку ниже.", reply_markup=keyboard)
-
-
-
-
