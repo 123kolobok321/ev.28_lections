@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from config.tasks import send_notification_task
 
 from product.models import Product
 
@@ -34,3 +35,10 @@ class Order(models.Model):
 
     def __str__(self):
         return f'{self.id} --> {self.user}'
+
+
+@receiver(post_save, sender=Order)
+def order_post_save(sender, instance, *args, **kwargs):
+    send_notification_task.delay(
+        instance.user.email, instance.id, instance.total_sum
+    )
